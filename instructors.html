@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>DoBu Martial Arts · Instructors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" >
+    <link rel="stylesheet" href="css/instructors.css">
+
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">DoBu <span>Martial Arts</span></a>
+            <button class="hamburger" id="menuToggle" aria-label="menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="classes.html">Classes</a>
+                <a href="timetable.html">Timetable</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html" class="active">Instructors</a>
+                <a href="prices.html">Prices</a>
+                <a href="contact.html">Contact</a>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                    <a href="membership.html" id="loginNav">Login</a>
+                    <a href="membership.html" id="registerNav">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="instructors" class="container" style="padding-top:70px;">
+        <h1 class="section-title">👨‍🏫 Our Instructors</h1>
+        <p class="section-sub">Meet our world-class team of martial arts and fitness experts.</p>
+        <div class="instructor-grid">
+            <div class="instructor-item">
+                <div class="instructor-avatar"><i class="fas fa-user-tie"></i></div>
+                <h2>Mauricio Gomez</h2>
+                <div class="title">Owner · Head Coach</div>
+                <p>4th Dan Judo · 3rd Dan Jiu-jitsu<br>1st Dan Karate · Muay Thai</p>
+                <span class="badge">⭐ Head Instructor</span>
+            </div>
+            <div class="instructor-item">
+                <div class="instructor-avatar"><i class="fas fa-user-graduate"></i></div>
+                <h2>Sarah Nova</h2>
+                <div class="title">Assistant Coach</div>
+                <p>5th Dan Karate</p>
+                <span class="badge">🏆 Karate Specialist</span>
+            </div>
+            <div class="instructor-item">
+                <div class="instructor-avatar"><i class="fas fa-user-ninja"></i></div>
+                <h2>Guy Victory</h2>
+                <div class="title">Assistant Coach</div>
+                <p>2nd Dan Jiu-jitsu · 1st Dan Judo</p>
+                <span class="badge">⚔️ Grappling Expert</span>
+            </div>
+            <div class="instructor-item">
+                <div class="instructor-avatar"><i class="fas fa-user-shield"></i></div>
+                <h2>Morris Davis</h2>
+                <div class="title">Assistant Coach</div>
+                <p>Muay Thai · 3rd Dan Karate</p>
+                <span class="badge">👊 Striking Specialist</span>
+            </div>
+            <div class="instructor-item">
+                <div class="instructor-avatar"><i class="fas fa-user-md"></i></div>
+                <h2>Traci Santiago</h2>
+                <div class="title">Fitness Coach</div>
+                <p>BSc Sports Science · Nutrition</p>
+                <span class="badge">🏋️ Conditioning</span>
+            </div>
+            <div class="instructor-item">
+                <div class="instructor-avatar"><i class="fas fa-user-nurse"></i></div>
+                <h2>Harpreet Kaur</h2>
+                <div class="title">Fitness Coach</div>
+                <p>BSc Physiotherapy · MSc Sports Science</p>
+                <span class="badge">🩺 Rehabilitation</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2>DoBu Martial Arts</h2>
+                <p style="font-size:0.9rem;">Strength · Confidence · Discipline</p>
+            </div>
+            <div>
+                <h2>Quick</h2>
+                <a href="classes.html">Classes</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Coaches</a>
+            </div>
+            <div>
+                <h2>Support</h2>
+                <a href="contact.html">Contact</a>
+                <a href="membership.html">Login</a>
+                <a href="membership.html">Register</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 DoBu Martial Arts · crafted by WebSpace*</div>
+    </footer>
+
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('open');
+                });
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const html = document.documentElement;
+
+            const stored = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', stored);
+            updateUI(stored);
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateUI(next);
+                });
+            }
+
+            function updateUI(theme) {
+                if (themeIcon && themeLabel) {
+                    if (theme === 'dark') {
+                        themeIcon.className = 'fas fa-sun';
+                        themeLabel.textContent = 'Light';
+                    } else {
+                        themeIcon.className = 'fas fa-moon';
+                        themeLabel.textContent = 'Dark';
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

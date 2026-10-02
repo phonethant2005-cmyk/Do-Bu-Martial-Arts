@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoBu Martial Arts · Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="stylesheet" href="css/index.css">
+       
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">DoBu <span>Martial Arts</span></a>
+            <button class="hamburger" id="menuToggle" aria-label="menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="classes.html">Classes</a>
+                <a href="timetable.html">Timetable</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Instructors</a>
+                <a href="prices.html">Prices</a>
+                <a href="contact.html">Contact</a>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                    <a href="membership.html" id="loginNav">Login</a>
+                    <a href="membership.html" id="registerNav">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-badge">
+                    <i class="fas fa-star" style="margin-right:6px;"></i> WORLD-CLASS TRAINING SINCE 2015
+                </div>
+                <h1>
+                    Build <span class="highlight">Strength</span>,<br>
+                    <span class="highlight">Confidence</span> &amp; Discipline
+                </h1>
+                <p>
+                    Through martial arts and fitness training. Join DoBu Martial Arts and
+                    transform your life with expert coaches, world-class facilities, and a
+                    community that pushes you to be your best.
+                </p>
+                <div class="hero-buttons">
+                    <a href="classes.html" class="btn-primary">
+                        Begin your journey today <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="timetable.html" class="btn-secondary">
+                        View Classes <i class="fas fa-calendar-alt"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="https://dobumartialarts.neocities.org/logo.png" alt="DoBuMartialArtsogo" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-icon').style.display='flex';">
+                    <div class="fallback-icon" style="display:none;">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">About DoBu</h2>
+        <div class="about-text">
+            <p>
+                <span class="highlight-text">DoBu Martial Arts</span> has a great group of dedicated coaches who will help you achieve your health objectives and improve on how well you do with martial arts skills. 
+            </p>
+            <p style="margin-top:16px;">
+                The fitness center is an active group who are passionate about personal development. They want to teach others about exercise techniques along with martial arts skills.
+            </p>
+            <span class="cta-line">
+                <i class="fas fa-fist-raised" style="color:var(--purple); margin-right:10px;"></i>
+                Are you ready for this adventure? Come to DoBu Martial Arts.
+            </span>
+        </div>
+        
+        <div class="grid-3" style="margin-top:40px;">
+            <div class="card">
+                <div class="icon"><i class="fas fa-dumbbell"></i></div>
+                <h3>Full Gym</h3>
+                <p>Matted area, fitness suite, sauna &amp; steam room.</p>
+            </div>
+            <div class="card">
+                <div class="icon"><i class="fas fa-users"></i></div>
+                <h3>Expert Coaches</h3>
+                <p>Black belts &amp; certified sports scientists.</p>
+            </div>
+            <div class="card">
+                <div class="icon"><i class="fas fa-child"></i></div>
+                <h3>Junior Programs</h3>
+                <p>Kids' martial arts in a safe, fun environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h4>DoBu Martial Arts</h4>
+                <p style="font-size:0.9rem;">Strength · Confidence · Discipline</p>
+            </div>
+            <div>
+                <h4>Quick</h4>
+                <a href="classes.html">Classes</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Coaches</a>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <a href="contact.html">Contact</a>
+                <a href="membership.html">Login</a>
+                <a href="membership.html">Register</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 DoBu Martial Arts · crafted by WebSpace*</div>
+    </footer>
+
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('open');
+                });
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const html = document.documentElement;
+
+            const stored = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', stored);
+            updateUI(stored);
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateUI(next);
+                });
+            }
+
+            function updateUI(theme) {
+                if (themeIcon && themeLabel) {
+                    if (theme === 'dark') {
+                        themeIcon.className = 'fas fa-sun';
+                        themeLabel.textContent = 'Light';
+                    } else {
+                        themeIcon.className = 'fas fa-moon';
+                        themeLabel.textContent = 'Dark';
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

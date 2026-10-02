@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoBu Martial Arts · Timetable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/timetable.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">DoBu <span>Martial Arts</span></a>
+            <button class="hamburger" id="menuToggle" aria-label="menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="classes.html">Classes</a>
+                <a href="timetable.html" class="active">Timetable</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Instructors</a>
+                <a href="prices.html">Prices</a>
+                <a href="contact.html">Contact</a>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                    <a href="membership.html" id="loginNav">Login</a>
+                    <a href="membership.html" id="registerNav">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="timetable" class="container" style="padding-top:70px;">
+        <h1 class="section-title">📅 Class Timetable</h1>
+        <p class="section-sub">Find the perfect time for your training.</p>
+        
+        <div class="timetable-wrap">
+            <table>
+                <thead><tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+                <tbody>
+                    <tr><td>06:00-07:30</td><td>Jiu-jitsu</td><td>Karate</td><td>Judo</td><td>Jiu-jitsu</td><td>Muay Thai</td><td>—</td><td>—</td></tr>
+                    <tr><td>08:00-10:00</td><td>Muay Thai</td><td>Private</td><td>Private</td><td>Private</td><td>Jiu-jitsu</td><td>Private</td><td>Private</td></tr>
+                    <tr><td>10:30-12:00</td><td>Private</td><td>Private</td><td>Private</td><td>Private</td><td>Private</td><td>Judo</td><td>Karate</td></tr>
+                    <tr><td>13:00-14:30</td><td>Open mat</td><td>Open mat</td><td>Open mat</td><td>Open mat</td><td>Open mat</td><td>Karate</td><td>Judo</td></tr>
+                    <tr><td>15:00-17:00</td><td>Kids jiu-jitsu</td><td>Kids judo</td><td>Kids karate</td><td>Kids jiu-jitsu</td><td>Kids judo</td><td>Muay Thai</td><td>Jiu-jitsu</td></tr>
+                    <tr><td>17:30-19:00</td><td>Karate</td><td>—</td><td>Muay Thai</td><td>Judo</td><td>Jiu-jitsu</td><td>Muay Thai</td><td>—</td></tr>
+                    <tr><td>19:00-21:00</td><td>Jiu-jitsu</td><td>—</td><td>Judo</td><td>Jiu-jitsu</td><td>Karate</td><td>Private</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2>DoBu Martial Arts</h2>
+                <p style="font-size:0.9rem;">Strength · Confidence · Discipline</p>
+            </div>
+            <div>
+                <h2>Quick</h2>
+                <a href="classes.html">Classes</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Coaches</a>
+            </div>
+            <div>
+                <h2>Support</h2>
+                <a href="contact.html">Contact</a>
+                <a href="membership.html">Login</a>
+                <a href="membership.html">Register</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 DoBu Martial Arts · crafted by WebSpace*</div>
+    </footer>
+
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('open');
+                });
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const html = document.documentElement;
+
+            const stored = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', stored);
+            updateUI(stored);
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateUI(next);
+                });
+            }
+
+            function updateUI(theme) {
+                if (themeIcon && themeLabel) {
+                    if (theme === 'dark') {
+                        themeIcon.className = 'fas fa-sun';
+                        themeLabel.textContent = 'Light';
+                    } else {
+                        themeIcon.className = 'fas fa-moon';
+                        themeLabel.textContent = 'Dark';
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoBu Martial Arts · Prices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" >
+    <link rel="stylesheet" href="css/prices.css">
+  
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">DoBu <span>Martial Arts</span></a>
+            <button class="hamburger" id="menuToggle" aria-label="menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="classes.html">Classes</a>
+                <a href="timetable.html">Timetable</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Instructors</a>
+                <a href="prices.html" class="active">Prices</a>
+                <a href="contact.html">Contact</a>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                    <a href="membership.html" id="loginNav">Login</a>
+                    <a href="membership.html" id="registerNav">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="prices" class="container" style="padding-top:70px;">
+        <h1 class="section-title">💰 Membership Prices</h1>
+        <p class="section-sub">Choose a plan that fits your goals and budget.</p>
+        
+        <div class="plans-grid">
+            <div class="plan">
+                <div class="plan-icon">🥋</div>
+                <h2>Basic</h2>
+                <div class="price">£25 <small>/mo</small></div>
+                <div class="description">1 martial art · 2 sessions/week</div>
+                <span class="plan-badge">Monthly</span>
+                <button class="btn-outline">Get Started</button>
+            </div>
+            <div class="plan">
+                <div class="plan-icon">🥋</div>
+                <h2>Intermediate</h2>
+                <div class="price">£35 <small>/mo</small></div>
+                <div class="description">1 martial art · 3 sessions/week</div>
+                <span class="plan-badge">Monthly</span>
+                <button class="btn-outline">Get Started</button>
+            </div>
+            <div class="plan">
+                <div class="plan-icon">🥋</div>
+                <h2>Advanced</h2>
+                <div class="price">£45 <small>/mo</small></div>
+                <div class="description">any 2 arts · 5 sessions/week</div>
+                <span class="plan-badge">Monthly</span>
+                <button class="btn-outline">Get Started</button>
+            </div>
+            <div class="plan">
+                <div class="plan-icon">⭐</div>
+                <h2>Elite</h2>
+                <div class="price">£60 <small>/mo</small></div>
+                <div class="description">unlimited classes</div>
+                <span class="plan-badge">Monthly</span>
+                <button class="btn-outline">Get Started</button>
+            </div>
+            <div class="plan">
+                <div class="plan-icon">👦</div>
+                <h2>Junior</h2>
+                <div class="price">£25 <small>/mo</small></div>
+                <div class="description">all kids sessions</div>
+                <span class="plan-badge">Monthly</span>
+                <button class="btn-outline">Get Started</button>
+            </div>
+            <div class="plan">
+                <div class="plan-icon">👤</div>
+                <h2>Private</h2>
+                <div class="price">£15 <small>/hr</small></div>
+                <div class="description">per hour tuition</div>
+                <span class="plan-badge">Hourly</span>
+                <button class="btn-outline">Get Started</button>
+            </div>
+        </div>
+
+        <div style="margin-top:40px; background:var(--bg-card); padding:24px 32px; border-radius:var(--radius); border:1px solid var(--border-light); text-align:center; max-width:900px; margin-left:auto; margin-right:auto;">
+            <h2 style="color:var(--purple); margin-bottom:10px; font-size:1.3rem;">📋 Specialist Courses</h2>
+            <p style="color:var(--text-secondary); font-size:1.05rem;">
+                <strong>6‑week self‑defence course</strong> — £180 <span style="color:var(--text-muted);">(2 × 1-hour sessions/week)</span><br>
+                <strong>Fitness room</strong> — £6 per visit &nbsp;|&nbsp; <strong>Personal fitness training</strong> — £35 per hour
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2>DoBu Martial Arts</h2>
+                <p style="font-size:0.9rem;">Strength · Confidence · Discipline</p>
+            </div>
+            <div>
+                <h2>Quick</h2>
+                <a href="classes.html">Classes</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Coaches</a>
+            </div>
+            <div>
+                <h2>Support</h2>
+                <a href="contact.html">Contact</a>
+                <a href="membership.html">Login</a>
+                <a href="membership.html">Register</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 DoBu Martial Arts · crafted by WebSpace*</div>
+    </footer>
+
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('open');
+                });
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const html = document.documentElement;
+
+            const stored = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', stored);
+            updateUI(stored);
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateUI(next);
+                });
+            }
+
+            function updateUI(theme) {
+                if (themeIcon && themeLabel) {
+                    if (theme === 'dark') {
+                        themeIcon.className = 'fas fa-sun';
+                        themeLabel.textContent = 'Light';
+                    } else {
+                        themeIcon.className = 'fas fa-moon';
+                        themeLabel.textContent = 'Dark';
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

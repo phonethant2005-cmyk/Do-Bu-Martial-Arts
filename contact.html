@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>DoBu Martial Arts · Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" >
+<link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">DoBu <span>Martial Arts</span></a>
+            <button class="hamburger" id="menuToggle" aria-label="menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="classes.html">Classes</a>
+                <a href="timetable.html">Timetable</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Instructors</a>
+                <a href="prices.html">Prices</a>
+                <a href="contact.html" class="active">Contact</a>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                    <a href="membership.html" id="loginNav">Login</a>
+                    <a href="membership.html" id="registerNav">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contact" class="container" style="padding-top:70px;">
+        <h1 class="section-title">Contact</h1>
+        <div class="contact-grid">
+            <div>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--purple);"></i> 123 Combat Lane, London, UK</p>
+                <p><i class="fas fa-phone-alt"></i> +44 20 7946 0123</p>
+                <p><i class="fas fa-envelope"></i> info@dobumartialarts.com</p>
+                <div style="margin-top:24px;">
+                    <i class="fab fa-facebook-square" style="font-size:2.2rem; margin-right:14px; color:var(--purple);"></i>
+                    <i class="fab fa-instagram-square" style="font-size:2.2rem; margin-right:14px; color:var(--purple);"></i>
+                    <i class="fab fa-youtube-square" style="font-size:2.2rem; color:var(--purple);"></i>
+                </div>
+            </div>
+            <div>
+                <div class="form-group"><label>Your Name</label><input type="text" placeholder="Name" ></div>
+                <div class="form-group"><label>Email</label><input type="email" placeholder="Email" ></div>
+                <div class="form-group"><label>Message</label><textarea rows="3" placeholder="I'd like to know more..."></textarea></div>
+                <button class="btn-primary">Send <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2>DoBu Martial Arts</h2>
+                <p style="font-size:0.9rem;">Strength · Confidence · Discipline</p>
+            </div>
+            <div>
+                <h2>Quick</h2>
+                <a href="classes.html">Classes</a>
+                <a href="membership.html">Membership</a>
+                <a href="instructors.html">Coaches</a>
+            </div>
+            <div>
+                <h2>Support</h2>
+                <a href="contact.html">Contact</a>
+                <a href="membership.html">Login</a>
+                <a href="membership.html">Register</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 DoBu Martial Arts · crafted by WebSpace*</div>
+    </footer>
+
+    <script>
+        (function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('open');
+                });
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const html = document.documentElement;
+
+            const stored = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', stored);
+            updateUI(stored);
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateUI(next);
+                });
+            }
+
+            function updateUI(theme) {
+                if (themeIcon && themeLabel) {
+                    if (theme === 'dark') {
+                        themeIcon.className = 'fas fa-sun';
+                        themeLabel.textContent = 'Light';
+                    } else {
+                        themeIcon.className = 'fas fa-moon';
+                        themeLabel.textContent = 'Dark';
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
